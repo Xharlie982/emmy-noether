@@ -240,3 +240,27 @@ footer p {
         max-height: none;
     }
 }
+
+/* Aparición suave de los contenidos */
+
+.animable {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.animable.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Respetar preferencias de movimiento */
+@media (prefers-reduced-motion: reduce) {
+    .animable {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
