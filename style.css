@@ -23,3 +23,24 @@
   body.cursor-habilitado .cursor-simetrico.activo:not(.sobre-enlace){visibility:visible;opacity:1}
 }
 @media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.cursor-simetrico{display:none}}
+
+/* V2: coherencia entre la figura del cursor y el laboratorio. */
+#petals ellipse { filter: drop-shadow(0 0 3px #e3b96e35); }
+#rotator { max-width: 290px; }
+.nav-links a:focus-visible { color: var(--gold); }
+footer { justify-content: space-between; }
+
+/* V2.1 — Créditos de autoría integrados con la estética original. */
+.credits{min-height:70vh;text-align:center;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 0%,#403047 0%,#25202c 47%,#17151b 90%);border-top:1px solid #e3b96e24}
+.credits-inner{max-width:900px;margin:auto;position:relative;z-index:2}
+.credits h2{margin:16px 0 20px}
+.credits-intro{margin:0 auto 24px;color:var(--muted);font-size:1.05rem}
+.credits-rule{display:flex;align-items:center;justify-content:center;gap:18px;color:var(--gold);max-width:380px;margin:32px auto}
+.credits-rule::before,.credits-rule::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#e3b96e80)}
+.credits-rule::after{transform:rotate(180deg)}
+.credits-rule span{font-size:1.3rem}
+.credits-label{letter-spacing:.23em;font-size:.7rem;color:var(--gold)!important;font-weight:700}
+.credits-authors{list-style:none;margin:22px 0 26px;padding:0;display:grid;gap:17px}
+.credits-authors li{font:400 clamp(1.12rem,2.25vw,1.75rem)/1.35 Georgia,'Times New Roman',serif;color:var(--cream)}
+.credits-meta{margin:0 auto;color:var(--muted);font-size:.8rem;letter-spacing:.12em}
+@media(max-width:560px){.credits{min-height:65vh}.credits-authors{gap:20px}}

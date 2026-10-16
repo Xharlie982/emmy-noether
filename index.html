@@ -32,7 +32,7 @@
   <a class="skip" href="#contenido">Saltar al contenido</a>
   <nav class="nav" aria-label="Navegación principal">
     <a class="brand" href="#inicio" aria-label="Ir al inicio">EN<span class="brand-ring" aria-hidden="true"></span><small>1918</small></a>
-    <div class="nav-links"><a href="#historia">Emmy</a><a href="#simetria">Simetría</a><a href="#sombra">Sociedad</a><a href="#poster">El póster</a></div>
+    <div class="nav-links"><a href="#historia">Historia</a><a href="#simetria">Simetría</a><a href="#poster">La obra</a></div>
     <div class="progress" aria-hidden="true"><span id="progreso"></span></div>
   </nav>
 
@@ -80,7 +80,7 @@
       <div class="narrow reveal"><p class="kicker">EL DESCUBRIMIENTO</p><h2>¿Qué cambia y qué <em>permanece?</em></h2><p class="lead">Una simetría es una transformación bajo la cual algo esencial permanece igual. Noether demostró que, cuando la <strong>acción física</strong> es invariante ante una simetría continua, existe una cantidad conservada asociada.</p></div>
       <div class="lab reveal">
         <div class="lab-heading"><div><p class="kicker">LABORATORIO INTERACTIVO</p><h3>Prueba la rotación</h3></div><span class="lab-status">SIMETRÍA DISCRETA · EJEMPLO VISUAL</span></div>
-        <div class="lab-grid"><div><div class="rotator-stage"><svg id="rotator" viewBox="0 0 300 300" role="img" aria-label="Figura floral de ocho pétalos que puede girar"><circle cx="150" cy="150" r="116" fill="none" stroke="#c8a262" opacity=".22" stroke-dasharray="2 8"/><g id="rotatingPetals"><g id="petals"></g><circle cx="150" cy="150" r="13" fill="#b65446"/><circle cx="150" cy="150" r="5" fill="#f4ce84"/><circle cx="150" cy="39" r="7" fill="#77a6ac" stroke="#fff0cc" stroke-width="2"/></g></svg></div><label class="range-label" for="angle">Ángulo de rotación <output id="angleOut">0°</output></label><input type="range" id="angle" min="0" max="360" value="0" step="1"><button type="button" class="text-button" id="resetAngle">↺ Reiniciar</button></div><div class="lab-explain"><h4 id="rotationResult">Prueba con 45°</h4><p id="rotationText">La figura vuelve a coincidir consigo misma cada 45°. El punto azul permite seguir el movimiento de una parte concreta.</p><p class="footnote">Este experimento usa una simetría <strong>discreta</strong>. El teorema de Noether se refiere a simetrías <strong>continuas de la acción</strong>; la figura ayuda a comprender la idea de invariancia, pero no demuestra el teorema.</p></div></div>
+        <div class="lab-grid"><div><div class="rotator-stage"><svg id="rotator" viewBox="0 0 300 300" role="img" aria-label="Figura floral de ocho pétalos que puede girar"><circle cx="150" cy="150" r="116" fill="none" stroke="#c8a262" opacity=".22" stroke-dasharray="2 8"/><g id="rotatingPetals"><g id="petals"></g><circle cx="150" cy="150" r="13" fill="#b65446"/><circle cx="150" cy="150" r="5" fill="#f4ce84"/><circle cx="150" cy="78" r="6" fill="#53758b" stroke="#fff0cc" stroke-width="2"/></g></svg></div><label class="range-label" for="angle">Ángulo de rotación <output id="angleOut">0°</output></label><input type="range" id="angle" min="0" max="360" value="0" step="1"><button type="button" class="text-button" id="resetAngle">↺ Reiniciar</button></div><div class="lab-explain"><h4 id="rotationResult">Prueba con 45°</h4><p id="rotationText">La figura vuelve a coincidir consigo misma cada 45°. El punto azul permite seguir el movimiento de una parte concreta.</p><p class="footnote">Este experimento usa una simetría <strong>discreta</strong>. El teorema de Noether se refiere a simetrías <strong>continuas de la acción</strong>; la figura ayuda a comprender la idea de invariancia, pero no demuestra el teorema.</p></div></div>
       </div>
       <div class="narrow discoveries reveal"><p class="kicker">TRES CONEXIONES</p><h3>Del movimiento a la conservación</h3><p>Selecciona una transformación para descubrir qué magnitud conserva un sistema cuando su acción posee esa simetría.</p><div class="discovery-controls" role="group" aria-label="Ejemplos de simetría"><button class="active" data-sym="tiempo" aria-pressed="true">Tiempo</button><button data-sym="espacio" aria-pressed="false">Espacio</button><button data-sym="giro" aria-pressed="false">Rotación</button></div><div class="discovery-result" aria-live="polite"><span id="symIcon" aria-hidden="true">◷</span><div><strong id="symName">Traslación en el tiempo → Energía</strong><p id="symText">Si las leyes que describe la acción no cambian al desplazar el instante de tiempo, se conserva la energía.</p></div></div></div>
     </section>
@@ -94,8 +94,23 @@
       <div class="art-grid reveal"><div class="art-wrap"><img src="obra.jpg" alt="Póster abstracto original: círculos cálidos en la zona superior, línea diagonal y remolinos violetas, verdes y oscuros abajo." loading="lazy"><button class="hotspot" type="button" style="left:50%;top:29%" data-hotspot="nucleo" aria-label="Explorar el núcleo">+</button><button class="hotspot" type="button" style="left:78%;top:18%" data-hotspot="anillos" aria-label="Explorar los anillos">+</button><button class="hotspot" type="button" style="left:52%;top:55%" data-hotspot="frontera" aria-label="Explorar la frontera diagonal">+</button><button class="hotspot" type="button" style="left:27%;top:69%" data-hotspot="miradas" aria-label="Explorar las miradas">+</button></div><div class="art-detail" aria-live="polite"><p class="kicker">EXPLORA LA OBRA</p><span class="detail-num" id="detailNum">01 / 04</span><h3 id="detailTitle">El núcleo</h3><p id="detailText">Las curvas concéntricas evocan una estructura que conserva su organización al girar. Es la interpretación visual de la simetría de rotación.</p></div></div>
     </section>
 
-    <section class="chapter ending" id="legado"><div class="narrow reveal"><p class="kicker">05 / EL LEGADO</p><h2>La simetría permanece.<br><em>Las ideas también.</em></h2><p>Noether dejó una nueva manera de pensar las estructuras algebraicas y una de las conexiones más profundas de la física matemática. Nuestra obra recuerda que la producción de conocimiento sucede dentro de una sociedad: entre descubrimientos, reconocimiento y obstáculos.</p><a class="pill" href="#inicio">Volver al inicio ↑</a></div></section>
+    <section class="chapter ending" id="legado"><div class="narrow reveal"><p class="kicker">05 / EL LEGADO</p><h2>La simetría permanece.<br><em>Las ideas también.</em></h2><p>Noether dejó una nueva manera de pensar las estructuras algebraicas y una de las conexiones más profundas de la física matemática. Nuestra obra recuerda que la producción de conocimiento sucede dentro de una sociedad: entre descubrimientos, reconocimiento y obstáculos.</p></div></section>
+    <section class="chapter credits" id="creditos" aria-labelledby="creditos-title">
+      <div class="credits-inner reveal">
+        <p class="kicker">06 / CRÉDITOS DEL PROYECTO</p>
+        <h2 id="creditos-title">Detrás de <em>la obra.</em></h2>
+        <p class="credits-intro">Una creación colectiva que reúne arte, matemática y sociedad.</p>
+        <div class="credits-rule" aria-hidden="true"><span>✳</span></div>
+        <p class="credits-label">AUTORES</p>
+        <ul class="credits-authors">
+          <li>Amira Emilyn Pérez del Aguila Mayorga</li>
+          <li>Lina Amira Durand Huiza</li>
+          <li>Carlos Alith Quispe Curay</li>
+        </ul>
+        <p class="credits-meta">UTEC · 2026</p>
+      </div>
+    </section>
   </main>
-  <footer><span>Emmy Noether: Luz simétrica, sombra social</span><span>Obra digital realizada con p5.js · Experiencia web</span><a href="#inicio">↑ Arriba</a></footer>
+  <footer><span>Emmy Noether: Luz simétrica, sombra social</span><span>Obra digital realizada con p5.js · Experiencia web</span></footer>
 </body>
 </html>

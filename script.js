@@ -86,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const petals=$('#petals');
   if(petals) for(let i=0;i<8;i++){
     const ellipse=document.createElementNS('http://www.w3.org/2000/svg','ellipse');
-    ellipse.setAttribute('cx','150');ellipse.setAttribute('cy','92');ellipse.setAttribute('rx','22');ellipse.setAttribute('ry','62');
+    ellipse.setAttribute('cx','150');ellipse.setAttribute('cy','90');ellipse.setAttribute('rx','18');ellipse.setAttribute('ry','46');
     ellipse.setAttribute('transform',`rotate(${i*45} 150 150)`);
-    ellipse.setAttribute('fill','#eac27b12');ellipse.setAttribute('stroke',i%2?'#c76b53':'#f0c279');ellipse.setAttribute('stroke-width','2.2');
+    ellipse.setAttribute('fill','#e3b96e1f');ellipse.setAttribute('stroke','#e3b96e');ellipse.setAttribute('stroke-width','2.5');
     petals.appendChild(ellipse);
   }
   const angle=$('#angle'), angleOut=$('#angleOut'), rotating=$('#rotatingPetals');
