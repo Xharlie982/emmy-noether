@@ -1,187 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Luz simétrica, sombra social — Emmy Noether</title>
-
-    <meta name="description" content="Una obra sobre Emmy Noether: simetría,
-    conservación y las tensiones entre el conocimiento y la sociedad.">
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17151b">
+  <meta name="description" content="Emmy Noether: Luz simétrica, sombra social. Una experiencia interactiva sobre simetría, conservación, historia y arte generativo.">
+  <title>Emmy Noether: Luz simétrica, sombra social</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-    <main class="pagina">
+  <!-- Cursor geométrico: decorativo, sin bloquear clics -->
+  <div class="cursor-simetrico" id="cursorSimetrico" aria-hidden="true">
+    <svg viewBox="0 0 64 64" role="presentation" focusable="false">
+      <g class="cursor-flor">
+        <g fill="rgba(227,185,110,.12)" stroke="#e3b96e" stroke-width="1.5">
+          <ellipse cx="32" cy="16" rx="5" ry="12"/>
+          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(45 32 32)"/>
+          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(90 32 32)"/>
+          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(135 32 32)"/>
+          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(180 32 32)"/>
+          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(225 32 32)"/>
+          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(270 32 32)"/>
+          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(315 32 32)"/>
+        </g>
+        <circle cx="32" cy="32" r="6" fill="#ba614a" stroke="#f2e4ce" stroke-width="1.5"/>
+      </g>
+      <circle class="cursor-halo" cx="32" cy="32" r="29" fill="none" stroke="#e3b96e" stroke-width=".75" opacity=".55"/>
+    </svg>
+  </div>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <nav class="nav" aria-label="Navegación principal">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">EN<span class="brand-ring" aria-hidden="true"></span><small>1918</small></a>
+    <div class="nav-links"><a href="#historia">Emmy</a><a href="#simetria">Simetría</a><a href="#sombra">Sociedad</a><a href="#poster">El póster</a></div>
+    <div class="progress" aria-hidden="true"><span id="progreso"></span></div>
+  </nav>
 
-        <header class="cabecera">
-            <p class="etiqueta">Emmy Noether</p>
+  <header class="hero" id="inicio">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <p class="eyebrow">UNA EXPERIENCIA DE ARTE, MATEMÁTICA Y SOCIEDAD</p>
+      <h1>Emmy Noether:<span>Luz simétrica,</span><em>sombra social</em></h1>
+      <p class="hero-intro">Un universo de líneas que se ordenan, se encuentran y se deforman. Una historia sobre aquello que permanece y las fuerzas que lo ponen a prueba.</p>
+      <a class="pill" href="#concepto">Entrar en la obra <span aria-hidden="true">↗</span></a>
+    </div>
+    <a class="scroll-cue" href="#concepto">DESLIZA PARA EXPLORAR <span aria-hidden="true">↓</span></a>
+  </header>
 
-            <h1>Luz simétrica,<br>sombra social</h1>
-
-            <p class="introduccion">
-                Dos ambientes se encuentran en un mismo campo de líneas:
-                uno busca el equilibrio; el otro lo somete a presión.
-            </p>
-        </header>
-
-        <div class="composicion">
-
-            <figure class="obra">
-                <img src="obra.jpg" alt="Composición abstracta con un núcleo circular y anillos
-          de colores cálidos en la zona superior, separados por una
-          frontera diagonal de un campo de remolinos violetas,
-          verdes y oscuros." width="4600" height="7400" decoding="async">
-
-                <figcaption>
-                    Obra digital realizada con p5.js.
-                </figcaption>
-            </figure>
-
-            <article class="lectura">
-
-                <section>
-                    <p class="numero">01 / La idea</p>
-                    <h2>El equilibrio y sus tensiones</h2>
-
-                    <p>
-                        La obra propone una lectura de Emmy Noether a través
-                        de dos ambientes: la claridad de una estructura
-                        matemática y las tensiones sociales que pueden
-                        rodear a quien la construye.
-                    </p>
-
-                    <p>
-                        La diagonal hace que ambos ambientes compartan una
-                        frontera. Allí, los recorridos se comprimen y los
-                        anillos se deforman: el equilibrio deja de ser
-                        una condición aislada y entra en contacto con
-                        un entorno que lo perturba.
-                    </p>
-                </section>
-
-                <section>
-                    <p class="numero">02 / Las formas</p>
-                    <h2>Un núcleo, sus anillos y las miradas</h2>
-
-                    <h3>El núcleo: simetría de rotación</h3>
-
-                    <p>
-                        El núcleo está construido con curvas concéntricas.
-                        Su estructura circular evoca la simetría de rotación:
-                        al girar alrededor de su centro, la forma conserva
-                        su organización. Esta simetría se expresa en su
-                        geometría, aunque el color y la textura introduzcan
-                        variaciones.
-                    </p>
-
-                    <p>
-                        La elección conecta con una consecuencia del teorema
-                        de Noether: cuando la acción de un sistema físico
-                        permanece invariante bajo rotaciones continuas
-                        alrededor de un eje, se conserva la componente
-                        del momento angular asociada a ese eje.
-                    </p>
-
-                    <p>
-                        El núcleo convierte esa relación entre simetría
-                        y conservación en una imagen. Sus círculos sugieren
-                        una estructura persistente; el anillo exterior,
-                        al deformarse cerca de la frontera, introduce
-                        la tensión entre esa coherencia y las presiones
-                        del entorno.
-                    </p>
-
-                    <p>
-                        Es una interpretación visual del principio:
-                        la obra no simula un sistema físico ni calcula
-                        su momento angular.
-                    </p>
-
-                    <h3>Los anillos</h3>
-                    <p>
-                        Los recorridos que lo rodean expanden esa estructura.
-                        Su deformación cerca de la frontera expresa presión
-                        y contacto entre los dos ambientes.
-                    </p>
-
-                    <p>
-                        Los anillos también permiten un juego de sentidos:
-                        evocan la transmisión de ideas y hacen una referencia
-                        verbal a los anillos de Noether. Es una metáfora visual,
-                        no una representación literal de un anillo algebraico.
-                    </p>
-
-                    <h3>Las miradas</h3>
-                    <p>
-                        En la zona inferior, algunos remolinos recuerdan a ojos.
-                        La obra aprovecha esa semejanza para sugerir escrutinio,
-                        juicio y vigilancia social, sin dibujar rostros
-                        ni figuras humanas.
-                    </p>
-                </section>
-
-                <section>
-                    <p class="numero">03 / El color</p>
-                    <h2>Dos atmósferas</h2>
-
-                    <p>
-                        Los rojos, amarillos, azules y tonos cálidos refuerzan
-                        la presencia de la zona luminosa. En la zona inferior,
-                        los violetas, verdes apagados y tonos oscuros
-                        construyen una atmósfera de tensión.
-                    </p>
-
-                    <p>
-                        El dorado se concentra en el lado ordenado.
-                        Su ausencia en la tormenta ayuda a distinguir
-                        ambos ambientes y a dar espacio a sus formas.
-                    </p>
-                </section>
-
-                <section>
-                    <p class="numero">04 / La técnica</p>
-                    <h2>La matemática construye la imagen</h2>
-
-                    <p>
-                        La composición está creada mediante código en p5.js.
-                        Sus trazos principales recorren aproximadamente
-                        curvas de nivel de una función matemática:
-                        caminos a lo largo de los cuales su valor
-                        permanece casi constante.
-                    </p>
-
-                    <p>
-                        Esta construcción funciona como una referencia artística
-                        a la conservación. No constituye por sí sola una
-                        demostración del teorema de Noether, y la simetría
-                        visual de la imagen tampoco equivale a las simetrías
-                        continuas que intervienen en ese teorema.
-                    </p>
-
-                    <p>
-                        La textura, el grano y las capas de color aportan
-                        un acabado material a una imagen construida
-                        digitalmente. La obra es estática: el movimiento
-                        pertenece al recorrido de la mirada.
-                    </p>
-                </section>
-
-                <blockquote>
-                    Una misma superficie reúne la búsqueda del equilibrio
-                    y las fuerzas que lo ponen a prueba.
-                </blockquote>
-
-            </article>
+  <main id="contenido">
+    <section class="chapter concept" id="concepto">
+      <div class="chapter-no">00 / LA IDEA</div>
+      <div class="narrow reveal">
+        <p class="kicker">¿Por qué este título?</p>
+        <h2>La luz de una idea.<br><em>La sombra de su época.</em></h2>
+        <p class="lead">El título <strong>«Luz simétrica, sombra social»</strong> une dos dimensiones de Emmy Noether: la claridad de su pensamiento matemático y las barreras sociales que atravesó para desarrollarlo.</p>
+        <div class="meaning-grid">
+          <article><span class="meaning-icon">◎</span><h3>Luz simétrica</h3><p>Los anillos luminosos evocan estructura, invariancia y la relación entre simetría y conservación que Noether ayudó a establecer.</p></article>
+          <article><span class="meaning-icon">◌</span><h3>Sombra social</h3><p>Los remolinos oscuros aluden al escrutinio y a las restricciones académicas que marcaron su trayectoria.</p></article>
         </div>
+        <p class="footnote">El póster es una interpretación artística: sus deformaciones no son una demostración del teorema físico.</p>
+      </div>
+    </section>
 
-        <footer>
-            <p>Luz simétrica, sombra social · Emmy Noether</p>
-        </footer>
+    <section class="chapter history" id="historia">
+      <div class="chapter-no">01 / LA MUJER DETRÁS DE LA SIMETRÍA</div>
+      <div class="two-col">
+        <div class="reveal"><p class="kicker">1882 — 1935</p><h2>Una mente que cambió <em>las reglas.</em></h2><p>Amalie Emmy Noether fue una matemática alemana fundamental para el álgebra moderna y la física teórica. Sus ideas permitieron describir estructuras abstractas de manera nueva y vincular las simetrías físicas con las leyes de conservación.</p><p>Su recorrido también estuvo marcado por obstáculos para acceder al reconocimiento y a cargos académicos. En 1933 tuvo que abandonar Alemania tras perder su puesto bajo el régimen nazi.</p><p class="tiny">Selecciona un año para recorrer su historia.</p></div>
+        <div class="timeline reveal" aria-label="Línea de tiempo interactiva">
+          <div class="year-buttons" id="yearButtons"><button type="button" data-year="1882">1882</button><button type="button" data-year="1907">1907</button><button type="button" data-year="1915">1915</button><button type="button" data-year="1918" aria-pressed="true" class="active">1918</button><button type="button" data-year="1919">1919</button><button type="button" data-year="1933">1933</button></div>
+          <div class="timeline-detail" aria-live="polite"><span class="year-big" id="yearBig">1918</span><h3 id="yearTitle">Una conexión fundamental</h3><p id="yearText">Publicó su trabajo sobre problemas variacionales invariantes, del que surge una profunda relación entre simetrías continuas y leyes de conservación.</p></div>
+          <p class="tiny">Fuentes históricas: <a href="https://www.uni-goettingen.de/en/74993.html" target="_blank" rel="noopener noreferrer">Universidad de Göttingen</a> y <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Noether_Emmy/" target="_blank" rel="noopener noreferrer">MacTutor</a>.</p>
+        </div>
+      </div>
+    </section>
 
-    </main>
+    <section class="chapter symmetry" id="simetria">
+      <div class="chapter-no">02 / LA LUZ SIMÉTRICA</div>
+      <div class="narrow reveal"><p class="kicker">EL DESCUBRIMIENTO</p><h2>¿Qué cambia y qué <em>permanece?</em></h2><p class="lead">Una simetría es una transformación bajo la cual algo esencial permanece igual. Noether demostró que, cuando la <strong>acción física</strong> es invariante ante una simetría continua, existe una cantidad conservada asociada.</p></div>
+      <div class="lab reveal">
+        <div class="lab-heading"><div><p class="kicker">LABORATORIO INTERACTIVO</p><h3>Prueba la rotación</h3></div><span class="lab-status">SIMETRÍA DISCRETA · EJEMPLO VISUAL</span></div>
+        <div class="lab-grid"><div><div class="rotator-stage"><svg id="rotator" viewBox="0 0 300 300" role="img" aria-label="Figura floral de ocho pétalos que puede girar"><circle cx="150" cy="150" r="116" fill="none" stroke="#c8a262" opacity=".22" stroke-dasharray="2 8"/><g id="rotatingPetals"><g id="petals"></g><circle cx="150" cy="150" r="13" fill="#b65446"/><circle cx="150" cy="150" r="5" fill="#f4ce84"/><circle cx="150" cy="39" r="7" fill="#77a6ac" stroke="#fff0cc" stroke-width="2"/></g></svg></div><label class="range-label" for="angle">Ángulo de rotación <output id="angleOut">0°</output></label><input type="range" id="angle" min="0" max="360" value="0" step="1"><button type="button" class="text-button" id="resetAngle">↺ Reiniciar</button></div><div class="lab-explain"><h4 id="rotationResult">Prueba con 45°</h4><p id="rotationText">La figura vuelve a coincidir consigo misma cada 45°. El punto azul permite seguir el movimiento de una parte concreta.</p><p class="footnote">Este experimento usa una simetría <strong>discreta</strong>. El teorema de Noether se refiere a simetrías <strong>continuas de la acción</strong>; la figura ayuda a comprender la idea de invariancia, pero no demuestra el teorema.</p></div></div>
+      </div>
+      <div class="narrow discoveries reveal"><p class="kicker">TRES CONEXIONES</p><h3>Del movimiento a la conservación</h3><p>Selecciona una transformación para descubrir qué magnitud conserva un sistema cuando su acción posee esa simetría.</p><div class="discovery-controls" role="group" aria-label="Ejemplos de simetría"><button class="active" data-sym="tiempo" aria-pressed="true">Tiempo</button><button data-sym="espacio" aria-pressed="false">Espacio</button><button data-sym="giro" aria-pressed="false">Rotación</button></div><div class="discovery-result" aria-live="polite"><span id="symIcon" aria-hidden="true">◷</span><div><strong id="symName">Traslación en el tiempo → Energía</strong><p id="symText">Si las leyes que describe la acción no cambian al desplazar el instante de tiempo, se conserva la energía.</p></div></div></div>
+    </section>
+
+    <section class="chapter shadow" id="sombra">
+      <div class="shadow-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="narrow reveal"><p class="kicker">03 / LA SOMBRA SOCIAL</p><h2>El talento no siempre encontró <em>las mismas oportunidades.</em></h2><p class="lead">Mientras sus ideas transformaban las matemáticas, Noether tuvo que superar restricciones institucionales por ser mujer. Durante años trabajó sin un puesto estable, y solo gradualmente pudo enseñar oficialmente en Göttingen.</p><p>Los remolinos y las formas semejantes a miradas de nuestro póster simbolizan esa presión social: no muestran un hecho físico, sino una interpretación del entorno que rodeó su trabajo.</p><blockquote>Una misma superficie reúne la búsqueda del equilibrio y las fuerzas que lo ponen a prueba.</blockquote></div>
+    </section>
+
+    <section class="chapter artwork" id="poster"><div class="chapter-no">04 / EL PÓSTER</div><div class="narrow reveal"><p class="kicker">LA OBRA ORIGINAL</p><h2>Todos los caminos <em>se encuentran.</em></h2><p>El núcleo circular, los anillos, la frontera diagonal y las miradas se unen en una composición creada con p5.js. Toca los marcadores para descubrir la interpretación de cada elemento.</p></div>
+      <div class="art-grid reveal"><div class="art-wrap"><img src="obra.jpg" alt="Póster abstracto original: círculos cálidos en la zona superior, línea diagonal y remolinos violetas, verdes y oscuros abajo." loading="lazy"><button class="hotspot" type="button" style="left:50%;top:29%" data-hotspot="nucleo" aria-label="Explorar el núcleo">+</button><button class="hotspot" type="button" style="left:78%;top:18%" data-hotspot="anillos" aria-label="Explorar los anillos">+</button><button class="hotspot" type="button" style="left:52%;top:55%" data-hotspot="frontera" aria-label="Explorar la frontera diagonal">+</button><button class="hotspot" type="button" style="left:27%;top:69%" data-hotspot="miradas" aria-label="Explorar las miradas">+</button></div><div class="art-detail" aria-live="polite"><p class="kicker">EXPLORA LA OBRA</p><span class="detail-num" id="detailNum">01 / 04</span><h3 id="detailTitle">El núcleo</h3><p id="detailText">Las curvas concéntricas evocan una estructura que conserva su organización al girar. Es la interpretación visual de la simetría de rotación.</p></div></div>
+    </section>
+
+    <section class="chapter ending" id="legado"><div class="narrow reveal"><p class="kicker">05 / EL LEGADO</p><h2>La simetría permanece.<br><em>Las ideas también.</em></h2><p>Noether dejó una nueva manera de pensar las estructuras algebraicas y una de las conexiones más profundas de la física matemática. Nuestra obra recuerda que la producción de conocimiento sucede dentro de una sociedad: entre descubrimientos, reconocimiento y obstáculos.</p><a class="pill" href="#inicio">Volver al inicio ↑</a></div></section>
+  </main>
+  <footer><span>Emmy Noether: Luz simétrica, sombra social</span><span>Obra digital realizada con p5.js · Experiencia web</span><a href="#inicio">↑ Arriba</a></footer>
 </body>
-
 </html>
