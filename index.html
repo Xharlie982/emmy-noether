@@ -10,42 +10,20 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Cursor geométrico: decorativo, sin bloquear clics -->
-  <div class="cursor-simetrico" id="cursorSimetrico" aria-hidden="true">
-    <svg viewBox="0 0 64 64" role="presentation" focusable="false">
-      <g class="cursor-flor">
-        <g fill="rgba(227,185,110,.12)" stroke="#e3b96e" stroke-width="1.5">
-          <ellipse cx="32" cy="16" rx="5" ry="12"/>
-          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(45 32 32)"/>
-          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(90 32 32)"/>
-          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(135 32 32)"/>
-          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(180 32 32)"/>
-          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(225 32 32)"/>
-          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(270 32 32)"/>
-          <ellipse cx="32" cy="16" rx="5" ry="12" transform="rotate(315 32 32)"/>
-        </g>
-        <circle cx="32" cy="32" r="6" fill="#ba614a" stroke="#f2e4ce" stroke-width="1.5"/>
-      </g>
-      <circle class="cursor-halo" cx="32" cy="32" r="29" fill="none" stroke="#e3b96e" stroke-width=".75" opacity=".55"/>
-    </svg>
-  </div>
+ 
   <a class="skip" href="#contenido">Saltar al contenido</a>
   <nav class="nav" aria-label="Navegación principal">
-    <a class="brand" href="#inicio" aria-label="Ir al inicio">EN<span class="brand-ring" aria-hidden="true"></span><small>1918</small></a>
     <div class="nav-links"><a href="#historia">Historia</a><a href="#simetria">Simetría</a><a href="#poster">La obra</a></div>
     <div class="progress" aria-hidden="true"><span id="progreso"></span></div>
   </nav>
 
   <header class="hero" id="inicio">
-    <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="hero-shade" aria-hidden="true"></div>
     <div class="hero-copy">
-      <p class="eyebrow">UNA EXPERIENCIA DE ARTE, MATEMÁTICA Y SOCIEDAD</p>
-      <h1>Emmy Noether:<span>Luz simétrica,</span><em>sombra social</em></h1>
-      <p class="hero-intro">Un universo de líneas que se ordenan, se encuentran y se deforman. Una historia sobre aquello que permanece y las fuerzas que lo ponen a prueba.</p>
-      <a class="pill" href="#concepto">Entrar en la obra <span aria-hidden="true">↗</span></a>
+      <h1>Emmy Noether<span>Luz simétrica,</span><em>sombra social</em></h1>
+      <div class="hero-rule" aria-hidden="true"><span>✳</span></div>
+      <p class="hero-intro">La matemática que descubrió que cada simetría continua esconde una ley de conservación, en una época que tardó en reconocerla.</p>
     </div>
-    <a class="scroll-cue" href="#concepto">DESLIZA PARA EXPLORAR <span aria-hidden="true">↓</span></a>
   </header>
 
   <main id="contenido">
@@ -57,19 +35,23 @@
         <p class="lead">El título <strong>«Luz simétrica, sombra social»</strong> une dos dimensiones de Emmy Noether: la claridad de su pensamiento matemático y las barreras sociales que atravesó para desarrollarlo.</p>
         <div class="meaning-grid">
           <article><span class="meaning-icon">◎</span><h3>Luz simétrica</h3><p>Los anillos luminosos evocan estructura, invariancia y la relación entre simetría y conservación que Noether ayudó a establecer.</p></article>
-          <article><span class="meaning-icon">◌</span><h3>Sombra social</h3><p>Los remolinos oscuros aluden al escrutinio y a las restricciones académicas que marcaron su trayectoria.</p></article>
+          <article><span class="meaning-icon">◌</span><h3>Sombra social</h3><p>Los remolinos oscuros representan los obstáculos que enfrentó por ser mujer, como enseñar sin sueldo, y por ser judía bajo el régimen nazi, que la despidió en 1933.</p></article>
         </div>
-        <p class="footnote">El póster es una interpretación artística: sus deformaciones no son una demostración del teorema físico.</p>
       </div>
     </section>
 
     <section class="chapter history" id="historia">
       <div class="chapter-no">01 / LA MUJER DETRÁS DE LA SIMETRÍA</div>
+      <div class="narrow history-head reveal"><p class="kicker">1882 — 1935</p><h2>Una mente que cambió <em>las reglas.</em></h2></div>
       <div class="two-col">
-        <div class="reveal"><p class="kicker">1882 — 1935</p><h2>Una mente que cambió <em>las reglas.</em></h2><p>Amalie Emmy Noether fue una matemática alemana fundamental para el álgebra moderna y la física teórica. Sus ideas permitieron describir estructuras abstractas de manera nueva y vincular las simetrías físicas con las leyes de conservación.</p><p>Su recorrido también estuvo marcado por obstáculos para acceder al reconocimiento y a cargos académicos. En 1933 tuvo que abandonar Alemania tras perder su puesto bajo el régimen nazi.</p><p class="tiny">Selecciona un año para recorrer su historia.</p></div>
+        <figure class="portrait reveal">
+          <div class="portrait-img"><img src="emmy-noether.jpg" width="399" height="501" alt="Retrato de Emmy Noether en su juventud, con blusa de rayas, moño al cuello y cinturón, apoyada en el respaldo de una silla." loading="lazy"></div>
+          <figcaption>Emmy Noether en su juventud</figcaption>
+        </figure>
         <div class="timeline reveal" aria-label="Línea de tiempo interactiva">
-          <div class="year-buttons" id="yearButtons"><button type="button" data-year="1882">1882</button><button type="button" data-year="1907">1907</button><button type="button" data-year="1915">1915</button><button type="button" data-year="1918" aria-pressed="true" class="active">1918</button><button type="button" data-year="1919">1919</button><button type="button" data-year="1933">1933</button></div>
-          <div class="timeline-detail" aria-live="polite"><span class="year-big" id="yearBig">1918</span><h3 id="yearTitle">Una conexión fundamental</h3><p id="yearText">Publicó su trabajo sobre problemas variacionales invariantes, del que surge una profunda relación entre simetrías continuas y leyes de conservación.</p></div>
+          <p class="tiny">Selecciona un año para recorrer su historia.</p>
+          <div class="year-buttons" id="yearButtons"><button type="button" data-year="1882" aria-pressed="true" class="active">1882</button><button type="button" data-year="1900" aria-pressed="false">1900</button><button type="button" data-year="1903" aria-pressed="false">1903</button><button type="button" data-year="1907" aria-pressed="false">1907</button><button type="button" data-year="1915" aria-pressed="false">1915</button><button type="button" data-year="1918" aria-pressed="false">1918</button><button type="button" data-year="1919" aria-pressed="false">1919</button><button type="button" data-year="1920" aria-pressed="false">1920</button><button type="button" data-year="1933" aria-pressed="false">1933</button><button type="button" data-year="1935" aria-pressed="false">1935</button></div>
+          <div class="timeline-detail" aria-live="polite"><span class="year-big" id="yearBig">1882</span><h3 id="yearTitle">Una familia de matemáticos</h3><p id="yearText">Nace el 23 de marzo en Erlangen, Alemania, en una familia judía de matemáticos. Su padre, Max Noether, era profesor en la universidad.</p></div>
           <p class="tiny">Fuentes históricas: <a href="https://www.uni-goettingen.de/en/74993.html" target="_blank" rel="noopener noreferrer">Universidad de Göttingen</a> y <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Noether_Emmy/" target="_blank" rel="noopener noreferrer">MacTutor</a>.</p>
         </div>
       </div>
@@ -77,11 +59,7 @@
 
     <section class="chapter symmetry" id="simetria">
       <div class="chapter-no">02 / LA LUZ SIMÉTRICA</div>
-      <div class="narrow reveal"><p class="kicker">EL DESCUBRIMIENTO</p><h2>¿Qué cambia y qué <em>permanece?</em></h2><p class="lead">Una simetría es una transformación bajo la cual algo esencial permanece igual. Noether demostró que, cuando la <strong>acción física</strong> es invariante ante una simetría continua, existe una cantidad conservada asociada.</p></div>
-      <div class="lab reveal">
-        <div class="lab-heading"><div><p class="kicker">LABORATORIO INTERACTIVO</p><h3>Prueba la rotación</h3></div><span class="lab-status">SIMETRÍA DISCRETA · EJEMPLO VISUAL</span></div>
-        <div class="lab-grid"><div><div class="rotator-stage"><svg id="rotator" viewBox="0 0 300 300" role="img" aria-label="Figura floral de ocho pétalos que puede girar"><circle cx="150" cy="150" r="116" fill="none" stroke="#c8a262" opacity=".22" stroke-dasharray="2 8"/><g id="rotatingPetals"><g id="petals"></g><circle cx="150" cy="150" r="13" fill="#b65446"/><circle cx="150" cy="150" r="5" fill="#f4ce84"/><circle cx="150" cy="78" r="6" fill="#53758b" stroke="#fff0cc" stroke-width="2"/></g></svg></div><label class="range-label" for="angle">Ángulo de rotación <output id="angleOut">0°</output></label><input type="range" id="angle" min="0" max="360" value="0" step="1"><button type="button" class="text-button" id="resetAngle">↺ Reiniciar</button></div><div class="lab-explain"><h4 id="rotationResult">Prueba con 45°</h4><p id="rotationText">La figura vuelve a coincidir consigo misma cada 45°. El punto azul permite seguir el movimiento de una parte concreta.</p><p class="footnote">Este experimento usa una simetría <strong>discreta</strong>. El teorema de Noether se refiere a simetrías <strong>continuas de la acción</strong>; la figura ayuda a comprender la idea de invariancia, pero no demuestra el teorema.</p></div></div>
-      </div>
+      <div class="narrow reveal"><h2>¿Qué cambia y qué <em>permanece?</em></h2><p class="lead">Una simetría es una transformación bajo la cual algo esencial permanece igual. Noether demostró que, cuando la <strong>acción física</strong> es invariante ante una simetría continua, existe una cantidad conservada asociada.</p></div>
       <div class="narrow discoveries reveal"><p class="kicker">TRES CONEXIONES</p><h3>Del movimiento a la conservación</h3><p>Selecciona una transformación para descubrir qué magnitud conserva un sistema cuando su acción posee esa simetría.</p><div class="discovery-controls" role="group" aria-label="Ejemplos de simetría"><button class="active" data-sym="tiempo" aria-pressed="true">Tiempo</button><button data-sym="espacio" aria-pressed="false">Espacio</button><button data-sym="giro" aria-pressed="false">Rotación</button></div><div class="discovery-result" aria-live="polite"><span id="symIcon" aria-hidden="true">◷</span><div><strong id="symName">Traslación en el tiempo → Energía</strong><p id="symText">Si las leyes que describe la acción no cambian al desplazar el instante de tiempo, se conserva la energía.</p></div></div></div>
     </section>
 
@@ -95,22 +73,14 @@
     </section>
 
     <section class="chapter ending" id="legado"><div class="narrow reveal"><p class="kicker">05 / EL LEGADO</p><h2>La simetría permanece.<br><em>Las ideas también.</em></h2><p>Noether dejó una nueva manera de pensar las estructuras algebraicas y una de las conexiones más profundas de la física matemática. Nuestra obra recuerda que la producción de conocimiento sucede dentro de una sociedad: entre descubrimientos, reconocimiento y obstáculos.</p></div></section>
-    <section class="chapter credits" id="creditos" aria-labelledby="creditos-title">
-      <div class="credits-inner reveal">
-        <p class="kicker">06 / CRÉDITOS DEL PROYECTO</p>
-        <h2 id="creditos-title">Detrás de <em>la obra.</em></h2>
-        <p class="credits-intro">Una creación colectiva que reúne arte, matemática y sociedad.</p>
-        <div class="credits-rule" aria-hidden="true"><span>✳</span></div>
-        <p class="credits-label">AUTORES</p>
-        <ul class="credits-authors">
-          <li>Amira Emilyn Pérez del Aguila Mayorga</li>
-          <li>Lina Amira Durand Huiza</li>
-          <li>Carlos Alith Quispe Curay</li>
-        </ul>
-        <p class="credits-meta">UTEC · 2026</p>
-      </div>
-    </section>
   </main>
-  <footer><span>Emmy Noether: Luz simétrica, sombra social</span><span>Obra digital realizada con p5.js · Experiencia web</span></footer>
+  <footer>
+    <p class="footer-label">AUTORES</p>
+    <ul class="footer-authors">
+      <li>Amira Emilyn Pérez del Aguila Mayorga</li>
+      <li>Lina Amira Durand Huiza</li>
+      <li>Carlos Alith Quispe Curay</li>
+    </ul>
+  </footer>
 </body>
 </html>

@@ -23,62 +23,23 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   window.addEventListener('scroll', updateProgress, {passive:true}); updateProgress();
 
-  // Portada generativa: anillos de líneas inspirados en los trazos del póster.
-  const canvas = $('#heroCanvas');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let w = 0, h = 0, time = 0, frame = 0;
-    const colors = ['#f4d68a','#c96a4b','#527d99','#efbc72','#b65446','#f3d29b'];
-    const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = canvas.clientWidth; h = canvas.clientHeight;
-      canvas.width = Math.round(w*dpr); canvas.height = Math.round(h*dpr);
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-      draw();
-    };
-    function draw() {
-      ctx.clearRect(0,0,w,h);
-      const cx = w * (w < 850 ? .68 : .72), cy = h*.48;
-      const unit = Math.min(w,h);
-      for(let ring=0;ring<57;ring++) {
-        const radius = unit*(.07 + ring*.0115);
-        ctx.beginPath();
-        const count = 240;
-        for(let n=0;n<=count;n++) {
-          const a = n/count*Math.PI*2;
-          const wave = Math.sin(a*6+ring*.26+time)*(.7+ring*.025) + Math.cos(a*13-ring*.39)*.75;
-          const r = radius + wave;
-          const x = cx + Math.cos(a)*r, y = cy + Math.sin(a)*r;
-          if(n===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-        }
-        ctx.strokeStyle = colors[ring%colors.length];
-        ctx.globalAlpha = ring%5===0?.7:.37;
-        ctx.lineWidth = ring%7===0?1.8:.9;
-        ctx.stroke();
-      }
-      ctx.globalAlpha=1;
-    }
-    const tick = () => {time+=.0035; draw(); frame=requestAnimationFrame(tick);};
-    window.addEventListener('resize',resize,{passive:true});resize();
-    if(!reduced) frame=requestAnimationFrame(tick);
-    document.addEventListener('visibilitychange',()=>{
-      cancelAnimationFrame(frame);
-      if(!document.hidden&&!reduced) frame=requestAnimationFrame(tick);
-    });
-  }
 
-  // Historia: eventos verificables, en orden cronológico.
+  // Historia: hitos verificables, en orden cronológico.
   const history = {
-    '1882':['El comienzo','Nació en Erlangen, Alemania.'],
-    '1907':['Doctorado en matemáticas','Se doctoró en la Universidad de Erlangen; su carrera académica se desarrollaría en un ambiente con fuertes barreras para las mujeres.'],
-    '1915':['Llegada a Göttingen','David Hilbert y Felix Klein la invitaron a trabajar en Göttingen, donde contribuyó también a cuestiones relacionadas con la relatividad.'],
-    '1918':['Una conexión fundamental','Publicó su trabajo sobre problemas variacionales invariantes, del que surge una profunda relación entre simetrías continuas y leyes de conservación.'],
-    '1919':['Reconocimiento institucional','Finalmente pudo habilitarse en Göttingen, después de restricciones iniciales que habían impedido su acceso a esa posición.'],
-    '1933':['Exilio en Estados Unidos','Perdió su puesto bajo el régimen nazi y pasó a enseñar en Bryn Mawr College, en Estados Unidos.']
+    '1882':['1882','Una familia de matemáticos','Nace el 23 de marzo en Erlangen, Alemania, en una familia judía de matemáticos. Su padre, Max Noether, era profesor en la universidad.'],
+    '1900':['1900–1903','La decisión de estudiar matemáticas','En 1900 se certifica para enseñar inglés y francés en colegios de niñas, pero decide estudiar matemáticas. En Erlangen las mujeres solo podían entrar como oyentes, con permiso expreso del profesor. Aun así, en 1903 aprueba el examen de graduación.'],
+    '1903':['1903–1904','Oyente en Göttingen','Estudia como oyente en Göttingen con Hilbert, Klein y Minkowski. En 1904 vuelve a Erlangen, donde ya se permitía a las mujeres ser estudiantes plenas.'],
+    '1907':['1907–1915','Doctorado y años sin sueldo','En 1907 obtiene el doctorado en Erlangen, con una tesis sobre invariantes algebraicos. Durante los años siguientes enseña y hace investigación sin sueldo, a veces reemplazando a su padre.'],
+    '1915':['1915','Llega a Göttingen','Hilbert y Klein la invitan a Göttingen, pero parte de la facultad se opone por ser mujer. Hilbert responde, según se cuenta, que el sexo de la candidata no es un argumento en contra de su admisión, y que «somos una universidad, no una casa de baños». Durante años da clases bajo el nombre de Hilbert, sin paga, y ayuda a entender la relatividad general de Einstein.'],
+    '1918':['1918','El teorema de Noether','Publica el teorema que relaciona las simetrías de un sistema físico con las cantidades que se conservan, y que ella había demostrado en 1915. Por ejemplo, si las leyes de la física no cambian con el paso del tiempo, la energía se conserva.'],
+    '1919':['1919','Docente, pero sin cátedra','La admiten formalmente como docente. Recibe un pequeño salario en 1923, pero nunca llega a ser profesora titular.'],
+    '1920':['1920–1933','El álgebra moderna','Desarrolla la teoría de ideales y luego el álgebra no conmutativa, con colaboradores como Hasse y Brauer. Reúne a su alrededor a un grupo de estudiantes y jóvenes matemáticos, conocidos como «los chicos de Noether».'],
+    '1933':['1933','Despido y exilio','Los nazis la despiden por ser judía. En octubre emigra a Estados Unidos, donde enseña en Bryn Mawr College y, desde 1934, da conferencias semanales en el Instituto de Estudios Avanzados de Princeton.'],
+    '1935':['1935','Su muerte y el homenaje de Einstein','Le detectan un tumor, la operan y muere por complicaciones el 14 de abril, a los 53 años. El 1 de mayo, Einstein escribe una carta en su honor que publica The New York Times.']
   };
   document.querySelectorAll('[data-year]').forEach(button => button.addEventListener('click',()=>{
-    const [title,text] = history[button.dataset.year];
-    $('#yearBig').textContent=button.dataset.year; $('#yearTitle').textContent=title; $('#yearText').textContent=text;
+    const [label,title,text] = history[button.dataset.year];
+    $('#yearBig').textContent=label; $('#yearTitle').textContent=title; $('#yearText').textContent=text;
     document.querySelectorAll('[data-year]').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
   }));
 
@@ -98,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     angleOut.textContent=`${deg}°`;
     rotating.style.transform=`rotate(${deg}deg)`;
     const matches=Math.abs(deg/45-Math.round(deg/45))<0.001;
-    $('#rotationResult').textContent=matches?'La forma coincide consigo misma':'La forma está en transición';
-    $('#rotationText').textContent=matches?`A ${deg}°, los ocho pétalos vuelven a ocupar el mismo conjunto de posiciones. El punto azul muestra cuánto giró la figura.`:'Continúa moviendo el control. La figura completa vuelve a coincidir con la inicial en múltiplos de 45°.';
+    $('#rotationResult').textContent=matches?'Los pétalos coinciden consigo mismos':'Los pétalos están en transición';
+    $('#rotationText').textContent=matches?`A ${deg}°, los ocho pétalos vuelven a ocupar el mismo conjunto de posiciones. El punto azul muestra cuánto giró la figura.`:'Continúa moviendo el control. Los pétalos vuelven a coincidir con su posición inicial en múltiplos de 45°.';
   };
   if(angle){angle.addEventListener('input',rotate);rotate();}
   $('#resetAngle')?.addEventListener('click',()=>{angle.value='0';rotate();});
@@ -119,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Puntos del póster: solo superpuestos; nunca se modifica la imagen.
   const hotspots={
     nucleo:['01 / 04','El núcleo','Las curvas concéntricas evocan una estructura que conserva su organización al girar. La relación con el teorema de Noether es interpretativa, no una simulación física.'],
-    anillos:['02 / 04','Los anillos','Los recorridos rodean el núcleo y se deforman cerca de la frontera. Evocan expansión, presión y, como juego de sentidos, los anillos del álgebra de Noether.'],
+    anillos:['02 / 04','Los anillos','Los recorridos rodean el núcleo y se deforman cerca de la frontera. Evocan expansión, presión y, como juego de sentidos, los anillos del álgebra, que en su honor se llaman anillos noetherianos.'],
     frontera:['03 / 04','La frontera diagonal','Aquí se encuentran la claridad matemática y la tensión social: los trazos se comprimen y se deforman al entrar en contacto ambos ambientes.'],
     miradas:['04 / 04','Las miradas','Algunos remolinos de la zona inferior recuerdan a ojos. Sugieren escrutinio y juicio social sin dibujar rostros ni figuras humanas.']
   };
@@ -130,23 +91,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
   const first=$('[data-hotspot="nucleo"]');if(first){first.classList.add('active');first.setAttribute('aria-pressed','true');}
 });
-
-// Cursor: posición exacta y puntero nativo sobre controles interactivos.
-(() => {
-  const cursor = document.getElementById('cursorSimetrico');
-  const media = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
-  if (!cursor || !media.matches) return;
-  document.body.classList.add('cursor-habilitado');
-  const interactive = 'a,button,input,select,textarea,label,[role="button"],[role="slider"],summary';
-  window.addEventListener('pointermove', (event) => {
-    if (event.pointerType !== 'mouse') return;
-    cursor.style.left = `${event.clientX}px`;
-    cursor.style.top = `${event.clientY}px`;
-    cursor.classList.add('activo');
-    cursor.classList.toggle('sobre-enlace', Boolean(event.target.closest(interactive)));
-  }, {passive:true});
-  document.addEventListener('pointerdown', () => cursor.classList.add('pulsado'));
-  document.addEventListener('pointerup', () => cursor.classList.remove('pulsado'));
-  window.addEventListener('blur', () => cursor.classList.remove('activo'));
-  document.addEventListener('pointerleave', () => cursor.classList.remove('activo'));
-})();
