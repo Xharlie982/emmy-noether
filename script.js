@@ -67,9 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Tres simetrías continuas de la acción y las magnitudes conservadas asociadas.
   const concepts={
-    tiempo:['◷','Traslación en el tiempo → Energía','Si la acción es invariante al desplazar el tiempo, se conserva la energía.'],
-    espacio:['⇄','Traslación en el espacio → Momento lineal','Si la acción es invariante ante desplazamientos espaciales, se conserva la componente correspondiente del momento lineal.'],
-    giro:['◎','Rotación → Momento angular','Si la acción es invariante ante rotaciones continuas alrededor de un eje, se conserva la componente del momento angular asociada a ese eje.']
+    tiempo:['◷','Traslación en el tiempo → Energía','Si las leyes del sistema son las mismas en cualquier instante, se conserva la energía.'],
+    espacio:['⇄','Traslación en el espacio → Momento lineal','Si las leyes son las mismas en cualquier lugar, se conserva el momento lineal.'],
+    giro:['◎','Rotación → Momento angular','Si las leyes son las mismas en cualquier dirección, se conserva el momento angular.']
   };
   document.querySelectorAll('[data-sym]').forEach(button=>button.addEventListener('click',()=>{
     const [icon,name,text]=concepts[button.dataset.sym];
@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
 
   // Puntos del póster: solo superpuestos; nunca se modifica la imagen.
-  const hotspots={
-    nucleo:['01 / 04','El núcleo','Las curvas concéntricas evocan una estructura que conserva su organización al girar. La relación con el teorema de Noether es interpretativa, no una simulación física.'],
-    anillos:['02 / 04','Los anillos','Los recorridos rodean el núcleo y se deforman cerca de la frontera. Evocan expansión, presión y, como juego de sentidos, los anillos del álgebra, que en su honor se llaman anillos noetherianos.'],
-    frontera:['03 / 04','La frontera diagonal','Aquí se encuentran la claridad matemática y la tensión social: los trazos se comprimen y se deforman al entrar en contacto ambos ambientes.'],
-    miradas:['04 / 04','Las miradas','Algunos remolinos de la zona inferior recuerdan a ojos. Sugieren escrutinio y juicio social sin dibujar rostros ni figuras humanas.']
+    const hotspots={
+    nucleo:['01 / 04','El núcleo','Los anillos se organizan alrededor de un mismo punto, como una figura que puede girar sin cambiar. Es la simetría de rotación, que según el teorema de Noether conserva el momento angular.'],
+    anillos:['02 / 04','Los círculos que lo rodean','Como planetas alrededor de una estrella, los círculos más pequeños orbitan el centro y repiten su forma. Evocan el orden de una galaxia, que se mantiene mientras gira.'],    
+    frontera:['03 / 04','Donde chocan dos mundos','Aquí chocan el orden y el caos: las líneas ordenadas se doblan, se parten y se dispersan en fragmentos al encontrarse con los remolinos oscuros. Es el choque entre la claridad de su pensamiento y los obstáculos de su época.'],
+    miradas:['04 / 04','Los remolinos oscuros','En la parte oscura, las líneas se cierran en remolinos y varios óvalos parecen ojos que observan. Es la presión de una sociedad que no la dejó enseñar con su nombre ni cobrar por hacerlo, y que en 1933 la despidió por ser judía.']
   };
   document.querySelectorAll('[data-hotspot]').forEach(button=>button.addEventListener('click',()=>{
     const [num,title,text]=hotspots[button.dataset.hotspot];
